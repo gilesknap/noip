@@ -18,15 +18,12 @@ spec:
       - name: noip
         image: gilesknap/noip
         imagePullPolicy: Always
-        command: [ "/bin/sh", "-c", "--" ]
-        # configure and start noip2, then spin so the container stays up
-        args: [ "sh /bootstrap.sh && noip2; while true; do sleep 30; done;" ]
         resources:
           limits:
             memory: "10Mi"
             cpu: "100m"
         env:
-        # environment variables from the secret provide creds for the noip
+        # environment variables from the secret provide creds for noip
         - name: NOIP_USER
           valueFrom:
             secretKeyRef:
@@ -39,7 +36,7 @@ spec:
               key: password
         livenessProbe:
           exec:
-            # execute pgrep to make sure noip2 is running still
+            # execute pgrep to make sure noip2 is still running
             command:
             - pgrep
             - noip2

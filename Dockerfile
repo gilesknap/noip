@@ -12,3 +12,5 @@ RUN curl -O https://www.noip.com/client/linux/noip-duc-linux.tar.gz && \
     make
 
 COPY bootstrap.sh bootstrap.sh
+
+ENTRYPOINT ./bootstrap.sh
