@@ -10,9 +10,16 @@ If you dont have one:
 kubectl create namespace admin
 ```
 
-To deploy the noip DDNS client to your cluster
+To deploy the noip DDNS client to your cluster:
 ```
 ./deploy_noip.sh
+
+Deploy NOIP to the cluster using existing creds secret (y/n)? n
+Noip User? dummyuser@hello.com
+Noip Password? MySecretPassword
+Deploy NOIP to the cluster with above creds (y/n)? y
+secret/noip-credentials configured
+deployment.apps/noip configured
 ```
 
 See above script for details - it encodes the user and pwd in a cluster secret
