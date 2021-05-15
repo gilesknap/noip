@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo
 read -p "Deploy NOIP to the cluster using existing creds secret (y/n)? " -n 1 -r
 echo
 
