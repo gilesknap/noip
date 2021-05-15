@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: noip
+  labels:
+    app: noip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: noip
+  template:
+    metadata:
+      labels:
+        app: noip
+    spec:
+      containers:
+      - name: noip
+        image: gilesknap/noip
+        imagePullPolicy: Always
+        command: [ "/bin/sh", "-c", "--" ]
+        args: [ "sh /bootstrap.sh && while true; do sleep 30; done;" ]
+        resources:
+          limits:
+            memory: "10Mi"
+            cpu: "100m"
+        env:
+        - name: NOIP_USER
+          valueFrom:
+            secretKeyRef:
+              name: noip-credentials
+              key: user
+        - name: NOIP_PWD
+          valueFrom:
+            secretKeyRef:
+              name: noip-credentials
+              key: password
