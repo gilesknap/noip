@@ -4,6 +4,7 @@ metadata:
   name: noip
   labels:
     app: noip
+  namespace: admin
 spec:
   replicas: 1
   selector:
