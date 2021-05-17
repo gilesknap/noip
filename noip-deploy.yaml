@@ -21,8 +21,8 @@ spec:
       labels:
         app: noip
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: gknuc
+      # nodeSelector:
+      #   kubernetes.io/hostname: gknuc
       containers:
       - name: noip
         image: gilesknap/noip
