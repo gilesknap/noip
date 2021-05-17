@@ -2,13 +2,8 @@
 ## noip
 A container build and Kubernetes deployment for NOIP Dynamic DNS Update client.
 
-These scripts assume there is a namespace called admin to deploy the
-service into,
-If you dont have one:
-
-```
-kubectl create namespace admin
-```
+These scripts create a namespace called admin to deploy the
+service into.
 
 To deploy the noip DDNS client to your cluster:
 ```

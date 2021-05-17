@@ -1,3 +1,9 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: admin
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,6 +21,8 @@ spec:
       labels:
         app: noip
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: gknuc
       containers:
       - name: noip
         image: gilesknap/noip
